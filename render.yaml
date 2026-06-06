@@ -9,4 +9,4 @@ services:
       - key: PYTHON_VERSION
         value: 3.10.0
       - key: ALLOWED_ORIGINS
-        value: "https://nepali-converter-frontend.vercel.app" # REPLACE THIS WITH REAL FRONTEND URL
+        value: "*"
