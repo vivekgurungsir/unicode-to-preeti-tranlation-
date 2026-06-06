@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nepali Unicode ↔ Preeti Converter</title>
+  <meta name="description" content="Single-purpose, fast, and accurate Nepali Unicode to Preeti bidirectional converter. Supports text and batch document conversion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Nepali Converter</h1>
+      <p>Unicode ↔ Preeti Conversion with Absolute Accuracy</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card zone-a">
+      <div class="zone-header">
+        <h2>Text Conversion</h2>
+        <div class="controls">
+          <div class="auto-detect-badge" id="autoDetectBadge">
+            Auto-Detect: <span id="detectedDirection">Unicode → Preeti</span>
+          </div>
+          <div class="toggle-container">
+            <span class="toggle-label">Auto</span>
+            <label class="switch">
+              <input type="checkbox" id="directionToggle" />
+              <span class="slider round"></span>
+            </label>
+            <span class="toggle-label" id="manualModeLabel">Manual</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-areas">
+        <div class="textarea-wrapper">
+          <label for="sourceText">Source Text</label>
+          <textarea id="sourceText" placeholder="Type or paste text here... (Unicode or Preeti)"></textarea>
+        </div>
+        
+        <div class="textarea-wrapper">
+          <label for="resultText">Converted Result</label>
+          <div class="result-container">
+            <textarea id="resultText" readonly placeholder="Converted text will appear here..."></textarea>
+            <button id="copyBtn" class="btn-copy" aria-label="Copy to clipboard">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card zone-b">
+      <div class="zone-header">
+        <h2>Document Batch Conversion</h2>
+        <p class="subtitle">Supports .txt, .docx, .pdf, .odt (Max 100MB/file)</p>
+      </div>
+
+      <div class="upload-zone" id="uploadZone">
+        <div class="upload-content">
+          <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+          <p>Drag & drop files or folders here</p>
+          <div class="upload-buttons">
+            <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Select Files</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('folderInput').click()">Select Folder</button>
+          </div>
+          <input type="file" id="fileInput" multiple hidden accept=".txt,.docx,.pdf,.odt" />
+          <input type="file" id="folderInput" webkitdirectory directory multiple hidden />
+        </div>
+      </div>
+
+      <div class="file-list-container">
+        <h3>Upload Queue <span id="queueCount">(0)</span></h3>
+        <ul id="fileList" class="file-list">
+          <!-- File items injected here via JS -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2026 Nepali Converter. Built with Vanilla JS & FastAPI.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
