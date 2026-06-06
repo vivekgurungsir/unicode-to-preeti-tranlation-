@@ -1,7 +1,7 @@
 // Determine backend URL dynamically based on environment
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
   ? 'http://127.0.0.1:8000' 
-  : 'https://nepali-converter-api.onrender.com'; // REPLACE WITH LIVE BACKEND URL
+  : 'https://https://unicode-to-preeti-tranlation.onrender.com'; // REPLACE WITH LIVE BACKEND URL
 
 // --- DOM Elements ---
 const sourceText = document.getElementById('sourceText');
